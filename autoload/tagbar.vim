@@ -3235,7 +3235,7 @@ function! s:ExecuteCtags(ctags_cmd) abort
         set shellcmdflag=/s\ /c
     endif
 
-    let ctags_output = system(a:ctags_cmd)
+    let ctags_output = vimproc#system(a:ctags_cmd)
 
     if &shell =~ 'cmd\.exe'
         let &shellxquote  = shellxquote_save
