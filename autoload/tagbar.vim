@@ -2036,7 +2036,7 @@ function! s:ExecuteCtagsOnFile(fname, ftype) abort
 
     let ctags_output = s:ExecuteCtags(ctags_cmd)
 
-    if v:shell_error || ctags_output =~ 'Warning: cannot open source file'
+    if vimproc#get_last_status() || ctags_output =~ 'Warning: cannot open source file'
         echoerr 'Tagbar: Could not execute ctags for ' . a:fname . '!'
         echomsg 'Executed command: "' . ctags_cmd . '"'
         if !empty(ctags_output)
